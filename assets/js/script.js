@@ -11,9 +11,10 @@ const iniciar = document.querySelector('.iniciar');
 const pausar = document.querySelector('.pausar');
 const zerar = document.querySelector('.zerar');
 let segundos = 0;
+let timer;
 
 function iniciaRelogio(){
-    const timer = setInterval(function(){
+    timer = setInterval(function(){
         segundos++;
         relogio.innerHTML = criaHoraDosSegundos(segundos);
     }, 1000);
@@ -21,4 +22,8 @@ function iniciaRelogio(){
 
 iniciar.addEventListener('click', function(e) {
     iniciaRelogio();
+});
+
+pausar.addEventListener('click', function(e) {
+    clearInterval(timer);
 });
